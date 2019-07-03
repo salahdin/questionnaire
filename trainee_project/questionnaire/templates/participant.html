@@ -9,13 +9,10 @@
     <form method="post">
        {% csrf_token %}
         {{ form.as_p}}
+
+        {{ age }}
+
         <input type="submit" name="submit">
     </form>
-    {% if age %}
-        <form method="post">
-            <label for="gardian">gardian</label>
-            <input type="checkbox" id="gardian">
-        </form>
-    {% endif %}
 </body>
 </html>
