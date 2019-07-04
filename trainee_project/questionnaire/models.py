@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from .validators import *
 
 genderChoice = (
     ('Male', 'male'),
@@ -36,6 +37,7 @@ class Subject(models.Model):
         verbose_name="age of the subject",
         null=False,
         blank=False,
+        validators=[validate_age_eligability]
     )
 
     literacy = models.CharField(
@@ -43,7 +45,8 @@ class Subject(models.Model):
         choices=LitracyChoice,
         blank=False,
         null=False,
-        max_length=20
+        max_length=20,
+        
     )
 
 

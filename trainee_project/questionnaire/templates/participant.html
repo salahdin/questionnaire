@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'templates/base.html' %}
+{% load crispy_forms_tags %}
 
-    <form method="post">
-       {% csrf_token %}
-
-    </form>
-
-</body>
-</html>
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p>if the subject is a minor is there a consent from the guardian </p>
+    yes:<input type="checkbox" value="yes">
+    <br>
+    <button type="submit" class="btn btn-success">Save person</button>
+  </form>
+  
+{% endblock %}
